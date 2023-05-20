@@ -1,0 +1,54 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Sally Cooper",
+            "email": "sallycooper@gmail.com",
+            "phone": "(470) 782-5471",
+            "state": "close"
+        },
+        {
+            "id": 2,
+            "name": "Judith Gonzalez",
+            "email": "jgonzalez@gmail.com",
+            "phone": "(123) 142-4123",
+            "state": "default"
+        },
+        {
+            "id": 3,
+            "name": "George Bryant",
+            "email": "georgebryant@gmail.com",
+            "phone": "(393) 292-0983",
+            "state": "default"            
+        },
+        {
+            "id": 4,
+            "name": "Betty Wood",
+            "email": "betty@gmail.com",
+            "phone": "(273) 098-1029",
+            "state": "superclose"
+        },
+        {
+            "id": 5,
+            "name": "Debra Russell",
+            "email": "debraressell@gmail.com",
+            "phone": "(412) 235-5321",
+            "state": "superclose"
+        },
+        {
+            "id": 6,
+            "name": "Rebecca Flores",
+            "email": "rebeccaflores@gmail.com",
+            "phone": "(574) 243-2574",
+            "state": "close"
+        },
+        {
+            "id": 7,
+            "name": "Kim Holland",
+            "email": "kimholland@gmail.com",
+            "phone": "(357) 345-6324",
+            "state": "default"
+        }
+        
+    ]
+}
