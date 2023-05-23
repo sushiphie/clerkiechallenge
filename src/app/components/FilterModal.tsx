@@ -41,9 +41,9 @@ const FilterModal: React.FC<FilterComponentProps> = ({ onFormSubmit }) => {
   };
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="absolute flex justify-center items-center">
       {showModal && (
-        <div className="w-[320px] flex flex-col rounded shadow">
+        <div className="w-[320px] flex flex-col bg-white rounded shadow">
           <div className="flex justify-between p-[20px]">
             <button
               onClick={handleClear}

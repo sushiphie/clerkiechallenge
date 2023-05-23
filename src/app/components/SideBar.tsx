@@ -21,9 +21,9 @@ function SideBar() {
 
   const getNavItemClasses = (menu: any) => {
     return classNames(
-      "flex items-center cursor-pointer hover:text-grey rounded w-full overflow-hidden whitespace-nowrap sideRow",
+      "flex items-center cursor-pointer hover:bg-filter-grey rounded w-full overflow-hidden whitespace-nowrap sideRow",
       {
-        ["bg-grey"]: activeMenu?.id === menu.id,
+        ["bg-filter-grey"]: activeMenu?.id === menu.id,
       }
     );
   };
@@ -31,7 +31,7 @@ function SideBar() {
   return (
     <div>
       <SiteTitle />
-      <div className="flex flex-col items-start">
+      <div className="flex flex-col items-start px-[15px] py-[10px]">
         {menuItems.map(({ icon: Icon, ...menu }) => {
           const classes = getNavItemClasses(menu);
           return (
