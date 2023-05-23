@@ -97,7 +97,7 @@ export default function Friends() {
                 className="flex flex-col items-start justify-center px-[30px] border border-border-grey rounded shadow mb-[15px] w-[1050px] h-[114px]"
               >
                 <div className="flex flex-row space-x-1">
-                  <p className="text-[16px] font-bold">{item.name}</p>
+                  <p className="text-[16px] font-bold">{item['name']}</p>
                   {item["state"] === "superclose" && (
                     <Badge
                       label="Super Close Friends"
@@ -115,9 +115,9 @@ export default function Friends() {
                 </div>
 
                 <div className="text-[14px] font-medium text-details-grey flex flex-row space-x-1">
-                  <p>{item.email}</p>
+                  <p>{item['email']}</p>
                   <BsDot className="h-[20px] w-[20px]" />
-                  <p>{item.phone}</p>
+                  <p>{item['phone']}</p>
                 </div>
               </div>
             ))}

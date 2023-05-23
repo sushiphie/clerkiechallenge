@@ -36,7 +36,7 @@ function SideBar() {
         {menuItems.map(({ icon: Icon, ...menu }) => {
           const classes = getNavItemClasses(menu);
           return (
-            <div className={classes}>
+            <div key={menu.id} className={classes}>
               <Icon className="h-[20px] w-[20px]" />
               <Link href={menu.link}>
                 <p className="font-medium">{menu.label}</p>
