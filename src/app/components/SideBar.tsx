@@ -14,8 +14,9 @@ function SideBar() {
     { id: 2, label: "Friends", icon: FaUserFriends, link: "/friends" },
   ];
   const router = useRouter();
+  const path = usePathname();
   const activeMenu = useMemo(
-    () => menuItems.find((menu) => menu.link === usePathname()),
+    () => menuItems.find((menu) => menu.link === path),
     [usePathname()]
   );
 
