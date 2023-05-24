@@ -10,9 +10,10 @@ type FilterData = {
 // define the type of the props
 type FilterComponentProps = {
   onFormSubmit: (data: FilterData) => void;
+  onCancelFilter: () => void;
 };
 
-const FilterModal: React.FC<FilterComponentProps> = ({ onFormSubmit }) => {
+const FilterModal: React.FC<FilterComponentProps> = ({ onFormSubmit, onCancelFilter }) => {
   const [closeFriends, setCloseFriends] = useState(false);
   const [superCloseFriends, setSuperCloseFriends] = useState(false);
 
@@ -38,6 +39,7 @@ const FilterModal: React.FC<FilterComponentProps> = ({ onFormSubmit }) => {
 
   const closeModal = () => {
     setShowModal(false);
+    onCancelFilter();
   };
 
   return (
@@ -47,7 +49,7 @@ const FilterModal: React.FC<FilterComponentProps> = ({ onFormSubmit }) => {
           <div className="flex justify-between p-[20px]">
             <button
               onClick={handleClear}
-              className="text-[14px] font-semibold text-border-grey"
+              className={`text-[14px] font-semibold ${closeFriends || superCloseFriends ? "text-icon-blue" : "text-border-grey"}`}
             >
               Clear all
             </button>
