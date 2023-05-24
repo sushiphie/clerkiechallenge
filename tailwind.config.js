@@ -20,6 +20,10 @@ module.exports = {
         'theme-light': '#DFEFFF',
         'filter-grey': "#424242",
         'filter-grey-2': "#686868",
+        'linear-grey': "#EAEAEA"
+      },
+      animation: {
+        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
     },
   },
