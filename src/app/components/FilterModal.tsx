@@ -57,7 +57,7 @@ const FilterModal: React.FC<FilterComponentProps> = ({
   return (
     <div className="absolute flex justify-center items-center">
       {showModal && (
-        <div className="w-[320px] flex flex-col bg-white rounded shadow">
+        <div className="w-[320px] flex flex-col bg-white rounded shadow-md">
           <div className="flex justify-between p-[20px]">
             <button
               onClick={handleClear}
@@ -82,24 +82,26 @@ const FilterModal: React.FC<FilterComponentProps> = ({
               Friend Status
             </p>
             <form>
-              <label className="flex justify-between">
+              <label className="flex flex-row items-baseline justify-between">
                 <p className="text-[16px] font-semibold place-content-center text-filter-grey pt-[20px]">
                   Close Friends
                 </p>
                 <input
                   type="checkbox"
+                  className="form-checkbox h-[19px] w-[19px] text-theme"
                   value="Close Friends"
                   checked={closeFriends}
                   onChange={handleCloseChange}
                 />
               </label>
 
-              <label className="flex justify-between">
+              <label className="flex flex-row items-baseline justify-between">
                 <p className="text-[16px] font-semibold place-content-center text-filter-grey py-[20px]">
                   Super Close Friends
                 </p>
                 <input
                   type="checkbox"
+                  className="form-checkbox h-[19px] w-[19px] text-theme"
                   value="Super Close Friends"
                   checked={superCloseFriends}
                   onChange={handleSuperChange}

@@ -48,6 +48,13 @@
             "email": "kimholland@gmail.com",
             "phone": "(357) 345-6324",
             "state": "default"
+        },
+        {
+            "id": 8,
+            "name": "John Smith",
+            "email": "johnsmith@gmail.com",
+            "phone": "(123) 412-2938",
+            "state": "superclose"
         }
         
     ]
