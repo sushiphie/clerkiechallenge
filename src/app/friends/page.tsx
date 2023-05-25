@@ -16,6 +16,20 @@ type FilterData = {
   superCloseFriends: boolean;
 };
 
+// checking number of true values avoids issues with undefined values
+const countTrueValues = (filterState: {
+  closeFriends: boolean;
+  superCloseFriends: boolean;
+}) => {
+  if (filterState.closeFriends && filterState.superCloseFriends) {
+    return 2;
+  } else if (filterState.closeFriends || filterState.superCloseFriends) {
+    return 1;
+  } else {
+    return 0;
+  }
+};
+
 export default function Friends() {
   const [data, setData] = useState([]);
   const [filterState, setFilterState] = useState<any | boolean[]>([
@@ -33,6 +47,7 @@ export default function Friends() {
   };
 
   const handleFilterData = (data: FilterData) => {
+    // console.log(data);
     if (data.closeFriends !== null && data.superCloseFriends !== null) {
       setFilterState(data); // update the state when the callback function is invoked
     }
@@ -45,9 +60,10 @@ export default function Friends() {
   };
 
   const handleCancel = () => {
+    setDisplayModal(!displayModal);
     setIsClicked(!isClicked);
-  }
-  
+  };
+
   useEffect(() => {
     // Fetching Data
     setLoading(true);
@@ -71,28 +87,59 @@ export default function Friends() {
         <p className="text-[18px] font-bold">Friends</p>
       </div>
 
-      <div className="flex flex-row pl-[311px]">
-        {/* Filter Button */}
-        <div className="relative flex flex-col w-[59px] h-[42px] px-[20px] py-[8px]">
-          <TbAdjustmentsHorizontal
-            onClick={handleClick}
-            className={`w-[36px] h-[36px] border rounded-2xl shadow ${
-              isClicked
-                ? "text-white bg-filter-grey"
-                : "text-filter-grey border-details-grey"
-            }`}
-          />
+      {/* if no filter applied */}
+      {!filterState.closeFriends && !filterState.superCloseFriends && (
+        <div className="flex flex-row pl-[311px]">
+          {/* Filter Button */}
+          <div className="relative flex flex-col w-[59px] h-[42px] px-[20px] py-[8px]">
+            <TbAdjustmentsHorizontal
+              onClick={handleClick}
+              className={`w-[36px] h-[36px] border rounded-2xl shadow ${
+                isClicked
+                  ? "text-white bg-filter-grey"
+                  : "text-filter-grey border-details-grey"
+              }`}
+            />
+          </div>
+          &nbsp;&nbsp;
+          <button
+            onClick={handleClear}
+            className="text-[14px] font-semibold text-border-grey"
+          >
+            | &nbsp;Clear all
+          </button>
         </div>
-        &nbsp;&nbsp;
-        <button
-          onClick={handleClear}
-          className="text-[14px] font-semibold text-border-grey"
-        >
-          | &nbsp;Clear all
-        </button>
-      </div>
+      )}
+
+      {/* if more than 1 filter applied */}
+      {(filterState.closeFriends || filterState.superCloseFriends) && (
+        <div className="flex flex-row pl-[311px]">
+          {/* Filter Button */}
+          <div className="flex flex-row border rounded-2xl shadow text-white bg-filter-grey">
+            <TbAdjustmentsHorizontal
+              onClick={handleClick}
+              className="w-[36px] h-[36px]"
+            />
+            {countTrueValues(filterState)}
+          </div>
+          &nbsp;&nbsp;
+          <button
+            onClick={handleClear}
+            className="text-[14px] font-semibold text-icon-blue"
+          >
+            | &nbsp;Clear all
+          </button>
+        </div>
+      )}
+
       <div className="flex flex-col px-[20px] pl-[311px]">
-        {displayModal && <FilterModal onFormSubmit={handleFilterData} onCancelFilter={handleCancel}/>}
+        {displayModal && (
+          <FilterModal
+            onFormSubmit={handleFilterData}
+            onCancelFilter={handleCancel}
+            initialValues={filterState}
+          />
+        )}
       </div>
 
       {loading && <Loading />}
